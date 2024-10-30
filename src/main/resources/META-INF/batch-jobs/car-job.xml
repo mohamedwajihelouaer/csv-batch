@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job id="car-job" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <step id="step1">
+        <chunk item-count="100">
+            <reader ref="csvItemReader"/>
+            <processor ref="csvItemProcessor"/>
+            <writer ref="csvItemWriter"/>
+        </chunk>
+    </step>
+</job>
