@@ -4,6 +4,9 @@ import jakarta.batch.api.chunk.ItemProcessor;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 
+import java.util.Objects;
+import java.util.stream.Stream;
+
 @ApplicationScoped
 @Named("csvItemProcessor")
 public class CsvItemProcessor implements ItemProcessor {
@@ -21,15 +24,9 @@ public class CsvItemProcessor implements ItemProcessor {
 
     private boolean validateBean(VehicleDTO dto) {
 
-        return dto.getYear() == null || dto.getMake() == null ||
-                dto.getModel() == null || dto.getTrim() == null ||
-                dto.getBody() == null || dto.getTransmission() == null ||
-                dto.getVin() == null || dto.getState() == null ||
-                dto.getCondition() == null || dto.getOdometer() == null ||
-                dto.getColor() == null || dto.getInterior() == null ||
-                dto.getSeller() == null || dto.getMmr() == null ||
-                dto.getSellingprice() == null || dto.getSaledate() == null;
-
+        return Stream.of(dto.getYear(), dto.getMake(), dto.getModel(), dto.getTrim(), dto.getBody(), dto.getTransmission(),
+                dto.getVin(), dto.getState(), dto.getCondition(), dto.getOdometer(), dto.getColor(), dto.getInterior(),
+                dto.getSeller(), dto.getMmr(), dto.getSellingprice(), dto.getSaledate()).allMatch(Objects::nonNull);
 
     }
 }
