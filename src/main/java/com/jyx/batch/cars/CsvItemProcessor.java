@@ -15,7 +15,7 @@ public class CsvItemProcessor implements ItemProcessor {
     public Object processItem(Object o) throws Exception {
 
         VehicleDTO dto = (VehicleDTO) o;
-        if (validateBean(dto) || dto.getSellingprice() < 50_000) {
+        if (!validateBean(dto) || dto.getSellingprice() < 50_000) {
             return null;
         }
 
