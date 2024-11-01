@@ -1,6 +1,9 @@
-# csv-batch
+# quarkus-jberet-csv-batch-demo
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This project uses Quarkus, Quarkus-JBeret and the supercsv library to build a csv batch job application. In Addition to generating 
+a filtered file, it also generates a little Report with the step metrics. The csv  used for this demo is not included in the project.
+
+
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
 
